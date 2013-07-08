@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  width: 500px;
+  margin: 25px auto;
+}
+
+h1:first {
+  text-decoration: underline;
+}
