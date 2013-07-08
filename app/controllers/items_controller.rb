@@ -26,6 +26,13 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
 
+    if params[:list_id]
+      @list = List.find(params[:list_id])
+    else
+      @list = List.new
+    end
+
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @item }
@@ -44,7 +51,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to @item.list, notice: 'Item was successfully created.' }
         format.json { render json: @item, status: :created, location: @item }
       else
         format.html { render action: "new" }
