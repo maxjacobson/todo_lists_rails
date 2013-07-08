@@ -11,17 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :completed %><br />
-    <%= f.check_box :completed %>
-  </div>
-  <div class="field">
-    <%= f.label :list_id %><br />
-    <%= f.number_field :list_id %>
+  <div class="new_item">
+
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :completed %><br />
+      <%= f.check_box :completed %>
+    </div>
+    <div class="field">
+      <%= f.label :list_id %><br />
+      <%= f.number_field :list_id %>
+    </div>
+
   </div>
   <div class="actions">
     <%= f.submit %>

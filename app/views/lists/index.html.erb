@@ -1,23 +1,26 @@
-<h1>Listing lists</h1>
-
 <% @lists.each do |list| %>
+    <div class="list">
   
-    <h2><%= link_to list.name, list %> <%= "✓" if list.completed %> </h2>
-    <p><strong>Created: </strong><%= list.created_at.strftime("%B %e, %Y - %l:%M %p") %></p>
-    <p><strong>Last updated:</strong> <%= list.updated_at.strftime("%B %e, %Y - %l:%M %p") %></p>
+        <h2><%= link_to list.name, list %> <%= "✓" if list.completed %></h2>
+        <div class="list_meta">
+            <%= link_to 'Edit', edit_list_path(list) %>
+            <%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+        <p><strong>Created: </strong><%= list.created_at.strftime("%B %e, %Y - %l:%M %p") %></p>
+        <p><strong>Last updated:</strong> <%= list.updated_at.strftime("%B %e, %Y - %l:%M %p") %></p>
 
-    <ol>
-    <% list.items.each do |item| %>
-      <li>
-        <%= item.name %>
-        <%= "✓" if item.completed %>
-      </li>
+        <ol>
+        <% list.items.each do |item| %>
+          <li>
+            <%= item.name %>
+            <%= "✓" if item.completed %>
+          </li>
 
-    <% end %>
-    </ol>
+        <% end %>
+        </ol>
+    </div>
 
-    <%= link_to 'Edit', edit_list_path(list) %>
-    <%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %>
+    
 
 <% end %>
 
